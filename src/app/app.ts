@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,6 +12,21 @@ export class App {
   protected readonly title = signal('PaymentsConsumeApp');
   protected readonly message = signal('');
   protected readonly isSubmitting = signal(false);
+
+  private readonly platformId = inject(PLATFORM_ID);
+
+  // Get API endpoint from environment variable or default
+  private getApiEndpoint(): string {
+    // Only access window in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      const envVar = (window as any).__STATIC_WEB_APP_CONFIG__?.env?.API_ENDPOINT;
+      if (envVar) {
+        return envVar;
+      }
+    }
+    // Default fallback
+    return 'https://payment-api-parthodave-c8hmc4a7h0chekdv.centralindia-01.azurewebsites.net';
+  }
 
   async submitPayment(event: Event) {
     event.preventDefault();
@@ -35,7 +51,8 @@ export class App {
 
     try {
       const payload = { AccountNumber: account, Amount: amount };
-      const res = await fetch('https://payment-api-parthodave-c8hmc4a7h0chekdv.centralindia-01.azurewebsites.net/api/payments', {
+      const apiEndpoint = this.getApiEndpoint();
+      const res = await fetch(`${apiEndpoint}/api/payments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

@@ -1,0 +1,6 @@
+name: PaymentsConsumeApp
+services:
+  web:
+    project: ./
+    language: ts
+    host: staticwebapp

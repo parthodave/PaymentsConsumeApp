@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://payment-api-parthodave-c8hmc4a7h0chekdv.centralindia-01.azurewebsites.net",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

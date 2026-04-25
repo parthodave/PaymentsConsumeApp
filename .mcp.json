@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "Azure MCP Server": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "Azure.Mcp"
+      ]
+    }
+  }
+}

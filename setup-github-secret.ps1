@@ -7,7 +7,7 @@ $azureToken = "a8d40362070bd9218b2cab2d536855b9ed580b61952cabd265ca2ce55151412e0
 # GitHub credentials
 $gitHubUser = "parthodave"
 $gitHubRepo = "PaymentsConsumeApp"
-$secretName = "AZURE_STATIC_WEB_APPS_API_TOKEN_MY_ANGULAR_UI"
+$secretName = "AZURE_STATIC_WEB_APPS_API_TOKEN"
 
 # You'll need to paste your GitHub Personal Access Token when prompted
 Write-Host "Opening GitHub to create/use Personal Access Token..."

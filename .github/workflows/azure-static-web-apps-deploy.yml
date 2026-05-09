@@ -38,4 +38,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
-          output_location: "dist/PaymentsConsumeApp"
+          output_location: "dist/PaymentsConsumeApp/browser"
